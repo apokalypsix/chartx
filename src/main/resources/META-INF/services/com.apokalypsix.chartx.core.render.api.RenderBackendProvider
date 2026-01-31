@@ -1,0 +1,4 @@
+com.apokalypsix.chartx.core.render.backend.opengl.OpenGLBackendProvider
+com.apokalypsix.chartx.core.render.backend.vulkan.VulkanBackendProvider
+com.apokalypsix.chartx.core.render.backend.metal.MetalBackendProvider
+com.apokalypsix.chartx.core.render.backend.dx12.DX12BackendProvider

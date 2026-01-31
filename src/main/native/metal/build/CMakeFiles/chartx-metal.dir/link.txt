@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -dynamiclib -Wl,-headerpad_max_install_names -o libchartx-metal.dylib -install_name @rpath/libchartx-metal.dylib "CMakeFiles/chartx-metal.dir/src/MetalNative.mm.o"  -framework Metal -framework Foundation -framework QuartzCore
