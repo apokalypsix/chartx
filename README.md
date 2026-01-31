@@ -90,65 +90,17 @@ Synchronized charts, split views, dashboard layouts
 
 ## Installation
 
-Choose one of the following installation methods:
-
-### Option A: Direct JAR Download (Recommended)
-
-Download the JAR from [GitHub Releases](https://github.com/apokalypsix/chartx/releases) and install to your local Maven repository:
-
-```bash
-mvn install:install-file -Dfile=chartx-0.1.0.jar \
-    -DgroupId=com.apokalypsix -DartifactId=chartx \
-    -Dversion=0.1.0 -Dpackaging=jar
-```
-
-Then add ChartX and its required dependencies to your project:
-
-#### Maven
+### Maven
 
 ```xml
-<!-- ChartX -->
 <dependency>
     <groupId>com.apokalypsix</groupId>
     <artifactId>chartx</artifactId>
     <version>0.1.0</version>
 </dependency>
-
-<!-- Required: JOGL (OpenGL bindings) -->
-<dependency>
-    <groupId>org.jogamp.gluegen</groupId>
-    <artifactId>gluegen-rt-main</artifactId>
-    <version>2.5.0</version>
-</dependency>
-<dependency>
-    <groupId>org.jogamp.jogl</groupId>
-    <artifactId>jogl-all-main</artifactId>
-    <version>2.5.0</version>
-</dependency>
-
-<!-- Required: Eclipse Collections -->
-<dependency>
-    <groupId>org.eclipse.collections</groupId>
-    <artifactId>eclipse-collections</artifactId>
-    <version>11.1.0</version>
-</dependency>
-
-<!-- Required: FlatLaf (UI components) -->
-<dependency>
-    <groupId>com.formdev</groupId>
-    <artifactId>flatlaf</artifactId>
-    <version>3.4</version>
-</dependency>
-
-<!-- Required: SLF4J logging -->
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>2.0.9</version>
-</dependency>
 ```
 
-Add the JOGL repository to resolve native libraries:
+Add the JOGL repository for OpenGL native libraries:
 
 ```xml
 <repositories>
@@ -159,74 +111,12 @@ Add the JOGL repository to resolve native libraries:
 </repositories>
 ```
 
-#### Gradle
+### Gradle
 
 ```groovy
 repositories {
     mavenCentral()
     maven { url 'https://jogamp.org/deployment/maven' }
-}
-
-dependencies {
-    implementation 'com.apokalypsix:chartx:0.1.0'
-    implementation 'org.jogamp.gluegen:gluegen-rt-main:2.5.0'
-    implementation 'org.jogamp.jogl:jogl-all-main:2.5.0'
-    implementation 'org.eclipse.collections:eclipse-collections:11.1.0'
-    implementation 'com.formdev:flatlaf:3.4'
-    implementation 'org.slf4j:slf4j-api:2.0.9'
-}
-```
-
-### Option B: GitHub Packages
-
-GitHub Packages requires authentication even for public packages.
-
-**1. Create a GitHub token:** GitHub → Settings → Developer settings → Personal access tokens → Generate new token (select `read:packages`)
-
-**2. Add to `~/.m2/settings.xml`:**
-
-```xml
-<settings>
-  <servers>
-    <server>
-      <id>github</id>
-      <username>YOUR_GITHUB_USERNAME</username>
-      <password>YOUR_GITHUB_TOKEN</password>
-    </server>
-  </servers>
-</settings>
-```
-
-**3. Add repository and dependency:**
-
-#### Maven
-
-```xml
-<repositories>
-    <repository>
-        <id>github</id>
-        <url>https://maven.pkg.github.com/apokalypsix/chartx</url>
-    </repository>
-</repositories>
-
-<dependency>
-    <groupId>com.apokalypsix</groupId>
-    <artifactId>chartx</artifactId>
-    <version>0.1.0</version>
-</dependency>
-```
-
-#### Gradle
-
-```groovy
-repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/apokalypsix/chartx")
-        credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
-        }
-    }
 }
 
 dependencies {
